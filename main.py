@@ -81,6 +81,8 @@ if not result:
 end_img_url = f'https://h5.cyol.com/special/daxuexi/{result.group(1)}/images/end.jpg'
 study_url = f"https://m.bjyouth.net/dxx/check?id={course_id}&org_id={org_id}"
 
+print("课程id: ", course_id)
+
 r = bjySession.get(study_url)
 if r.text:
     print(
