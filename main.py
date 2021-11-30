@@ -68,6 +68,7 @@ if not url:
 
 r2 = bjySession.get('https://m.bjyouth.net/dxx/my-integral?type=2&page=1&limit=15')
 have_learned = json.loads(r2.text)
+print("课程id: ", course_id)
 if f"学习课程：《{title}》" in list(map(lambda x: x['text'], have_learned['data'])):
     print(f'{title} 在运行前已完成')
     exit(0)
@@ -80,8 +81,6 @@ if not result:
 
 end_img_url = f'https://h5.cyol.com/special/daxuexi/{result.group(1)}/images/end.jpg'
 study_url = f"https://m.bjyouth.net/dxx/check?id={course_id}&org_id={org_id}"
-
-print("课程id: ", course_id)
 
 r = bjySession.get(study_url)
 if r.text:
