@@ -71,7 +71,10 @@ have_learned = json.loads(r2.text)
 print("课程id: ", course_id)
 for i in range(course_id):
     study_url = f"https://m.bjyouth.net/dxx/check?id={i}&org_id={org_id}"
-    r = bjySession.get(study_url)    
+    try:
+        r = bjySession.get(study_url)
+    except:
+        pass
 if f"学习课程：《{title}》" in list(map(lambda x: x['text'], have_learned['data'])):
     print(f'{title} 在运行前已完成')
     exit(0)
