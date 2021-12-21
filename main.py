@@ -88,7 +88,10 @@ if not result:
 end_img_url = f'https://h5.cyol.com/special/daxuexi/{result.group(1)}/images/end.jpg'
 study_url = f"https://m.bjyouth.net/dxx/check?id={course_id}&org_id={org_id}"
 
-r = bjySession.get(study_url)
+try:
+    r = bjySession.get(study_url)
+except:
+    pass
 if r.text:
     print(
         f'Unexpected response: {r.text}'
