@@ -69,7 +69,7 @@ if not url:
 r2 = bjySession.get('https://m.bjyouth.net/dxx/my-integral?type=2&page=1&limit=15')
 have_learned = json.loads(r2.text)
 print("课程id: ", course_id)
-for i in range(course_id):
+for i in range(course_id-1):
     study_url = f"https://m.bjyouth.net/dxx/check?id={i}&org_id={org_id}"
     try:
         r = bjySession.get(study_url)
