@@ -75,6 +75,7 @@ for i in range(course_id):
         r = bjySession.get(study_url)
     except:
         pass
+print("学完了之前的所有课程")
 if f"学习课程：《{title}》" in list(map(lambda x: x['text'], have_learned['data'])):
     print(f'{title} 在运行前已完成')
     exit(0)
